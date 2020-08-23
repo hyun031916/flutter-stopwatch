@@ -48,7 +48,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
         onPressed: ()=> setState(() {
           _clickButton();
         }),
-        child: Icon(Icons.play_arrow),
+        child: _isRunning ? Icon(Icons.pause) : Icon(Icons.play_arrow),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
@@ -106,11 +106,16 @@ class _StopWatchPageState extends State<StopWatchPage> {
   }
 
   void _clickButton(){
-
+    _isRunning = ! _isRunning;
+    (_isRunning? _start() : _pause());
   }
   @override
   void dispose() {
     _timer?.cancel();
     super.dispose();
   }
+
+  _start(){}
+
+  _pause(){}
 }
