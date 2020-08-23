@@ -26,6 +26,31 @@ class StopWatchPage extends StatefulWidget {
 class _StopWatchPageState extends State<StopWatchPage> {
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      appBar:AppBar(
+        title:Text('StopWatch'),
+      ),
+      body: _buildBody(),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height:50.0,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: ()=> setState(() {
+          _clickButton();
+        }),
+        child: Icon(Icons.play_arrow),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+
+  Widget _buildBody(){
     return Container();
+  }
+
+  void _clickButton(){
+
   }
 }
