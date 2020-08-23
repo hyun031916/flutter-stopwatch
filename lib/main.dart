@@ -115,7 +115,17 @@ class _StopWatchPageState extends State<StopWatchPage> {
     super.dispose();
   }
 
-  _start(){}
+  _start(){
+    _timer = Timer.periodic(
+      Duration(milliseconds: 10,),
+          (timer) {
+              setState((){
+                _time++;
+              });
+            });
+  }
 
-  _pause(){}
+  _pause(){
+    _timer?.cancel();
+  }
 }
