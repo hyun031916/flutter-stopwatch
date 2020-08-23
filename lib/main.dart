@@ -79,7 +79,8 @@ class _StopWatchPageState extends State<StopWatchPage> {
                   width: 100,
                   height: 200,
                   child: ListView(
-                    children: <Widget>[], // TODO : 랩타임 추후 수정
+                    children: _lapTimes.map((time)=>Text(time)).toList(),
+
                   )
                 )
               ]
@@ -89,7 +90,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
               bottom: 10,
               child: FloatingActionButton(
                 backgroundColor: Colors.deepOrangeAccent,
-                onPressed: _reset, //TODO : 왼쪽 아래 위치 초기화 버튼 동작 구현
+                onPressed: _reset,
                 child: Icon(Icons.rotate_left),
               ),
             ),
