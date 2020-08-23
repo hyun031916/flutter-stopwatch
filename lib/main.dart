@@ -30,7 +30,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
   var _time = 0;  //0.1초마다 1씩 증가시킬 정수형 변수
   var _isRunning = false; //현재 시작 상태를 나타낼 불리언 변수
 
-  List<String> _lapTime = []; //랩타임에 표시할 시간을 저장할 리스트
+  List<String> _lapTimes = []; //랩타임에 표시할 시간을 저장할 리스트
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
               bottom: 10,
               child: FloatingActionButton(
                 backgroundColor: Colors.deepOrangeAccent,
-                onPressed: (){}, //TODO : 왼쪽 아래 위치 초기화 버튼 동작 구현
+                onPressed: _reset, //TODO : 왼쪽 아래 위치 초기화 버튼 동작 구현
                 child: Icon(Icons.rotate_left),
               ),
             ),
@@ -97,8 +97,12 @@ class _StopWatchPageState extends State<StopWatchPage> {
               right: 10,
               bottom: 10,
               child : RaisedButton(
-                onPressed:(){}, //TODO: 오른 쪽 아래에 위치한 랩타임 버튼 동작 구현
-                child: Text('랩타임')
+                onPressed: (){
+                  setState((){
+                    _recordLapTime('$sec.$hundredth');
+                  });
+                },
+                  child: Text('랩타임')
               )
             )
           ]
@@ -130,4 +134,15 @@ class _StopWatchPageState extends State<StopWatchPage> {
   _pause(){
     _timer?.cancel();
   }
+
+  void _reset(){
+    setState(() {
+      _isRunning = false;
+      _timer?.cancel();
+      _lapTimes.clear();
+      _time = 0;
+    });
+  }
+
+
 }
