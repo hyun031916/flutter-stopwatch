@@ -55,6 +55,8 @@ class _StopWatchPageState extends State<StopWatchPage> {
   }
 
   Widget _buildBody(){
+    var sec = _time ~/100;  //초
+    var hundredth = '${_time % 100}'.padLeft(2, '0'); //1/100ch
     return Container(
       child: Padding(
         padding:const EdgeInsets.only(top:30),
