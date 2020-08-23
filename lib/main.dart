@@ -144,5 +144,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
     });
   }
 
-
+  void _recordLapTime(String time) {
+    _lapTimes.insert(0, '${_lapTimes.length +1}등 $time');
+  }
 }
