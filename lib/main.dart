@@ -69,10 +69,10 @@ class _StopWatchPageState extends State<StopWatchPage> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     Text( //초
-                      '0',
+                      '$sec',
                       style: TextStyle(fontSize: 50.0),
                     ),
-                    Text('00'), //1/100초
+                    Text('$hundredth'), //1/100초
                   ],
                 ),
                 Container(
